@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Account.java&apos; to &apos;45-Account-set/src/com.aurionpro.test&apos;&#x0D;&#x0A;- Original project: &apos;34-account-exception&apos;&#x0D;&#x0A;- Destination element: &apos;45-Account-set/src/com.aurionpro.test&apos;&#x0D;&#x0A;- Original element: &apos;com.aurionpro.model.Account.java&apos;" description="Copy compilation unit" destination="=45-Account-set/src&lt;com.aurionpro.test" element1="/src&lt;com.aurionpro.model{Account.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1691560352264" units="1" version="1.0"/>
+</session>

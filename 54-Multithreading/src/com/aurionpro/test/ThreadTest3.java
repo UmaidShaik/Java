@@ -1,0 +1,35 @@
+package com.aurionpro.test;
+
+public class ThreadTest3 {
+
+	public static void main(String[] args) {
+		Runnable obj1 = new Runnable() {
+
+			@Override
+			public void run() {
+				System.out.println(Thread.currentThread().getName()+" Inside Anonymous Thread");
+				
+			}
+		};
+		Thread t1 = new Thread(obj1);
+		t1.start();
+		
+		abstract class inner implements Runnable {
+			Runnable obj2 = new Runnable() {
+
+			@Override
+			public void run() {
+				System.out.println(Thread.currentThread().getName()+"Inside class Thread");
+				
+			}
+			};
+		
+		};
+	}
+}
+		
+	
+		
+	
+
+

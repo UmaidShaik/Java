@@ -1,0 +1,24 @@
+package com.aurionpro.test;
+
+import com.aurionpro.model.Employee;
+
+public class EmployeeTest {
+
+	public static void main(String[] args) {
+		
+		Employee employee = new Employee(1,"umaid",80000, 5000,800,500);
+		System.out.print("Monthly salary : ");
+		System.out.println(employee.employeetotalsalary());
+		System.out.print("Annual salary : ");
+		System.out.println(employee.annualsalary());
+		System.out.print("Tax : ");
+		System.out.println(employee.Tax());
+		System.out.print("Gross salary : ");
+		System.out.println(employee.grosssalary());
+
+
+		
+
+	}
+
+}

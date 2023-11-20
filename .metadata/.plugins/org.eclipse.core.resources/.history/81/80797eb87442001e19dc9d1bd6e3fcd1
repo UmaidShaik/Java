@@ -1,0 +1,152 @@
+package com.aurionpro.test;
+
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
+import com.aurionpro.model.Employee;
+
+
+
+public class EmployeeTest {
+//	public ArrayList<Employee> employee = new ArrayList<>();
+private static final int NULL = 0;
+
+public static void main(String[] args) {
+	
+Scanner sc = new Scanner(System.in);
+	
+		ArrayList<Employee> employee = new ArrayList<>();
+		employee.add(new Employee(7698,"BLAKE","MANAGER",7839,"1-MAY-81",2850,NULL,30));
+		employee.add(new Employee(7369,"SMITH","CLERK",7902,"17-DEC-80",800,NULL,20));
+		employee.add(new Employee(7788,"SCOTT","ANALYST",7566,"09-DEC-82",3000,NULL,20));
+		employee.add(new Employee(7934,"MILLER","CLERK",7782,"23-JAN-82",1300,NULL,10));
+		employee.add(new Employee(7654,"MARTIN","SALESMAN",7698,"28-SEP-81",1250,1400,30));
+		employee.add(new Employee(7499,"ALLEN","SALESMAN",7698,"20-FEB-81",1600,300,30 ));
+		employee.add(new Employee(7782,"CLARK","MANAGER",7839,"9-JUN-81",2450,NULL,10));
+		employee.add(new Employee(7844,"TURNER","SALESMAN",7698,"8-SEP-81",1500,0,30));
+		employee.add(new Employee(7900,"JAMES","CLERK",7698,"3-DEC-81",950,NULL,30));
+		employee.add(new Employee(7521,"WARD","SALESMAN",7698,"22-FEB-81",1250,500,30));
+		employee.add(new Employee(7902,"FORD","ANALYST",7566,"3-DEC-81",3000,NULL,20));
+		employee.add(new Employee(7876,"ADAM","CLERK",7788,"12-JAN-83",1100,NULL,20));
+		employee.add(new Employee(7566,"JONES","MANAGER",7839,"2-APR-81",2975,NULL,20));
+		employee.add(new Employee(7698,"BLAKE","MANAGER",7839,"1-MAY-81",2850,NULL,30));
+		employee.add(new Employee(7369,"SMITH","CLERK",7902,"17-DEC-80",800,NULL,20));
+		employee.add(new Employee(7788,"SCOTT","ANALYST",7566,"09-DEC-82",3000,NULL,20));
+		employee.add(new Employee(7654,"MARTIN","SALESMAN",7698,"28-SEP-81",1250,1400,30));
+		employee.add(new Employee(7499,"ALLEN","SALESMAN",7698,"20-FEB-81",1600,300,30));
+		employee.add(new Employee(7839,"KING-WEB","PRESIDENT",NULL,"17-NOV-81",15000,NULL,10));
+		employee.add(new Employee(7782,"CLARK","MANAGER",7839,"9-JUN-81",2450,NULL,10));
+		employee.add(new Employee(7844,"TURNER","SALESMAN",7698,"8-SEP-81",1500,0,30));
+		employee.add(new Employee(7900,"JAMES","CLERK",7698,"3-DEC-81",950,NULL,30));
+
+		
+            
+        	
+        while (true) {
+            System.out.println("Menu:");
+            System.out.println("1. Add Employee");
+            System.out.println("2. Delete Employee");
+            System.out.println("3. Find Employee by DepartmentID ");
+            System.out.println("4. Find Employee by manager ID ");
+            System.out.println("5. high paid employee ");
+
+            
+            System.out.print("Enter your choice: ");
+            int choice = sc.nextInt();
+            sc.nextLine(); 
+
+            switch (choice) {
+            case 1:
+            	System.out.println("Enter the Employee Id");
+            	int id = sc.nextInt();
+            	System.out.println(("Enter the Employee name"));
+            	String name = sc.next();
+            	System.out.println("Role of employee");
+            	String role = sc.next();
+            	System.out.println("Manager id");
+            	int managerid = sc.nextInt();
+            	System.out.println("Date of joining");
+            	String date = sc.next();
+            	System.out.println("salary");
+            	double salary = sc.nextDouble();
+            	System.out.println("Enter the commision");
+            	int commission = sc.nextInt();
+            	System.out.println("dept id");
+            	int deptid = sc.nextInt();
+            	Employee emp1 = new Employee(id,name,role,managerid,date,salary,commission,deptid);
+            	employee.add(emp1);
+            	for (Employee emp2 : employee) {
+                    System.out.println(emp2);}
+            	break;	
+            	case 2:
+            		System.out.println("Enter the Employee id");
+            		int Did = sc.nextInt();
+            		for (Employee employee2 : employee) {
+						if(employee2.getId() == Did) {
+							employee.remove(employee2);
+							break;
+						}
+					}
+            		for (Employee employee2 : employee) {
+						System.out.println(employee2);
+					}
+            	break;
+            	case 3:
+            		System.out.println("Enter the Department Id");           		
+            	       int targetid = sc.nextInt();
+            			List<Employee> employeesInDepartment = new ArrayList<>();
+            	        int count = 0;
+            	        for (Employee emp : employee) {
+            	            if (emp.getDepartid() == targetid) {
+            	                employeesInDepartment.add(emp);
+            	                count++;
+            	            }
+            	        }
+            	        System.out.println("Employees in department " + targetid + ":" + "Count " + count);
+            	        for (Employee emp : employeesInDepartment) {
+            	            System.out.println(emp.getName());
+                         }               
+            	  break;
+            	case 4:
+            		System.out.println("Enter the Manager Id");
+            		int targetmid = sc.nextInt();
+            		List<Employee> managerId = new ArrayList<>();
+            		for (Employee mid : employee) {
+            			if(targetmid == mid.getManagerid()) {
+            			if(mid.getId() == targetmid) {
+            			   managerId.add(mid);
+            			}   
+            		}
+            		}
+            		
+            		System.out.println("The Employees are" );
+            		for(Employee emp : managerId) {
+            			System.out.println(emp.getName());
+            		}
+    
+            		break;
+            		
+            	case 5:
+            		  Optional<Employee> max = employee.stream().max(Comparator.comparing(Employee::getSalary));
+                      System.out.println(max.get().getName()+" : "+max.get().getSalary());
+            		break;
+            		
+            		
+            		
+            		
+            	default:
+            		System.out.println("there is no such case ");
+            	
+}
+
+}
+}
+}

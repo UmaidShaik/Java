@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;assignment.FileHanding.java&apos; to &apos;FileHandling.java&apos;&#x0D;&#x0A;- Original project: &apos;assignment&apos;&#x0D;&#x0A;- Original element: &apos;assignment.FileHanding.java&apos;&#x0D;&#x0A;- Renamed element: &apos;assignment.FileHandling.java&apos;" description="Rename compilation unit &apos;FileHanding.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;assignment{FileHanding.java" name="FileHandling.java" references="false" stamp="1689610839704" version="1.0"/>
+</session>
